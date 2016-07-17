@@ -1,27 +1,26 @@
 'use strict'
 
 var React = require('react');
-import { View, Image } from 'react-native';
+import { View, Image, Dimensions } from 'react-native';
 var HexGrid = require('./hexgrid');
 var Icons = require('./icons');
 
 var Map = React.createClass({
     render() {
+        var {width, height} = Dimensions.get('window');
         return (
-            //Icons.splash
             <View style={{
                 flex: 1,
                 //marginTop: 30,
                 //backgroundColor: 'rgba(0,0,0,0.01)',
             }}>
-                <Image source={Icons['map']} style={{
+                <Image source={Icons['map']} resizeMode={'stretch'} style={{
                     flex: 1,
                     width: null,
                     height: null,
-                    backgroundColor: 'transparent',
-                    resizeMode: 'stretch'
+                    backgroundColor: 'transparent'
                 }}>
-                    <HexGrid />
+                    <HexGrid width={width} height={height} density={26}/>
                 </Image>
             </View>
         );

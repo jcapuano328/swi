@@ -1,29 +1,23 @@
 'use strict'
 
 var React = require('react');
-import { View, Dimensions } from 'react-native';
+import { View, Text } from 'react-native';
+import Svg from 'react-native-svg';
 var Hexagon = require('./hexagon');
+var generator = require('./grid-generator');
 
 var HexGrid = React.createClass({
     render() {
-        var {width, height} = Dimensions.get('window');
-        var cols =
-
+        //console.log(this.props.width + ', ' + this.props.height + ', ' + this.props.density);
+        let hexes = generator(this.props.width, this.props.height, this.props.density);
         return (
-            //Icons.splash
-            <View style={{
-                flex: 1,
-                //marginTop: 30,
-                //backgroundColor: 'rgba(0,0,0,0.01)',
-            }}>
-                <Image source={Icons['map']} style={{
-                    flex: 1,
-                    width: null,
-                    height: null,
-                    backgroundColor: 'transparent',
-                    resizeMode: 'stretch'
-                }} />
-            </View>
+            <Svg height={this.props.height} width={this.props.width}>
+                {hexes.map((hex, i) => {
+                    return (
+                        <Hexagon key={i} hex={hex} />
+                    );
+                })}
+            </Svg>
         );
     }
 });
