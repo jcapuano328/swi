@@ -45,6 +45,7 @@ module.exports = (height, width, side) => {
     //let numhexes = Math.floor(area / hexarea);
     let rows = Math.floor(height / side);
     let cols = Math.floor(width / hexwidth);
+    console.log(rows+'x'+cols);
     for (let row = 0; row < rows; row++) {
         let y = row * deltay;
         let xstart = (row % 2) ? (hexwidth / 2) : 0;
@@ -53,6 +54,10 @@ module.exports = (height, width, side) => {
             hexes.push({
                 col: col,
                 row: row,
+                x: x,
+                y: y,
+                width: hexwidth,
+                height: hexheight,
                 points: hexPoints({x:hexcenter.x + x, y: hexcenter.y + y}, side)
             });
         }

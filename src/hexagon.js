@@ -1,7 +1,8 @@
 'use strict'
 
 var React = require('react');
-import { Polygon } from 'react-native-svg';
+import { G, Polygon, Text } from 'react-native-svg';
+var Unit = require('./unit');
 
 var Hexagon = React.createClass({
     render() {
@@ -10,13 +11,22 @@ var Hexagon = React.createClass({
         }).join(' ');
         //console.log(pts);
         return (
-            <Polygon
-               points={pts}
-               fillOpacity="0"
-               stroke="gray"
-               strokeWidth="1"
-           />
-        );
+            <G>
+                <Polygon
+                   points={pts}
+                   fillOpacity="0"
+                   stroke="gray"
+                   strokeWidth="1"
+               />
+               {(this.props.hex.row == 4 && this.props.hex.col == 3)
+                   ? <Unit nation={'french'} leader={'Junot'} leadership={2} strength={11} x={this.props.hex.x} y={this.props.hex.y} width={this.props.hex.width} height={this.props.hex.height} />
+                   : <Text
+                        x={(this.props.hex.width-this.props.hex.x)/2-1}
+                        y={(this.props.hex.y+this.props.hex.height)/2-2}
+                      >{this.props.hex.row+','+this.props.hex.col}</Text>
+               }
+            </G>
+        )
     }
 });
 
