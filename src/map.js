@@ -7,7 +7,8 @@ var Icons = require('./icons');
 
 var Map = React.createClass({
     render() {
-        var {width, height} = Dimensions.get('window');
+        var {height, width } = Dimensions.get('window');
+        //console.log('height = ' + height + ', width = ' + width);
         return (
             <View style={{
                 flex: 1,

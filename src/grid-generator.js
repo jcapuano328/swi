@@ -43,9 +43,31 @@ module.exports = (height, width, side) => {
     //let area = height * width;
     //let hexarea = (1.5*factor) * (side*side);
     //let numhexes = Math.floor(area / hexarea);
-    let rows = Math.floor(height / side);
+    let row = 0, col = 0;
+    for (let y = 0; y < height; y+=deltay) {
+        col = 0;
+        for (let x = (row%2) ? (hexwidth/2) : 0; x < width; x += deltax) {
+            hexes.push({
+                col: col,
+                row: row,
+                x: x,
+                y: y,
+                width: hexwidth,
+                height: hexheight,
+                points: hexPoints({x:hexcenter.x + x, y: hexcenter.y + y}, side)
+            });
+            col++;
+        }
+        row++;
+    }
+    console.log('window = ' + height + ' x ' + width + ' (' + side + ')');
+    console.log('grid = ' + row + ' x ' + col);
+
+    /*
+    let rows = Math.floor(height / hexheight);
     let cols = Math.floor(width / hexwidth);
-    console.log(rows+'x'+cols);
+    console.log('window = ' + height + ' x ' + width + ' (' + side + ')');
+    console.log('grid = ' + rows + ' x ' + cols);
     for (let row = 0; row < rows; row++) {
         let y = row * deltay;
         let xstart = (row % 2) ? (hexwidth / 2) : 0;
@@ -62,6 +84,7 @@ module.exports = (height, width, side) => {
             });
         }
     }
+    */
     return hexes;
 }
 
