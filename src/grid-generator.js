@@ -43,10 +43,10 @@ module.exports = (height, width, side) => {
     //let area = height * width;
     //let hexarea = (1.5*factor) * (side*side);
     //let numhexes = Math.floor(area / hexarea);
-    let row = 0, col = 0;
+    let row = 1, col = 1;
     for (let y = 0; y < height; y+=deltay) {
-        col = 0;
-        for (let x = (row%2) ? (hexwidth/2) : 0; x < width; x += deltax) {
+        col = 1;
+        for (let x = (row%2==0) ? (hexwidth/2) : 0; x < width; x += deltax) {
             hexes.push({
                 col: col,
                 row: row,
@@ -60,8 +60,8 @@ module.exports = (height, width, side) => {
         }
         row++;
     }
-    console.log('window = ' + height + ' x ' + width + ' (' + side + ')');
-    console.log('grid = ' + row + ' x ' + col);
+    //console.log('window = ' + height + ' x ' + width + ' (' + side + ')');
+    //console.log('grid = ' + row + ' x ' + col);
 
     /*
     let rows = Math.floor(height / hexheight);

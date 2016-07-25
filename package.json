@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "run": "node node_modules/react-native/local-cli/cli.js run-android",
+    "debug": "node node_modules/react-native/local-cli/cli.js run-android",
     "menu": "adb shell input keyevent 82",
     "logs": "adb logcat *:S ReactNative:V ReactNativeJS:V"
   },
   "dependencies": {
     "react": "15.2.1",
-    "react-native": "^0.29.0",
+    "react-native": "^0.29.0",    
     "react-native-svg": "^3.0.0"
   }
 }

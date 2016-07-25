@@ -2,7 +2,9 @@
 
 var React = require('react');
 import { View } from 'react-native';
-var Map = require('./map');
+//var Map = require('./map');
+//var Map = require('./maps/spain');
+var Map = require('./maps/portugal');
 
 var MainView = React.createClass({
     render() {

@@ -15,7 +15,8 @@ var Map = React.createClass({
                 //marginTop: 30,
                 //backgroundColor: 'rgba(0,0,0,0.01)',
             }}>
-                <Image source={Icons['map']} resizeMode={'stretch'} style={{
+                <Image source={Icons['map']} resizeMode={'stretch'}
+                    style={{
                     flex: 1,
                     width: null,
                     height: null,
@@ -23,8 +24,20 @@ var Map = React.createClass({
                 }}>
                     <HexGrid width={width} height={height} density={26}/>
                 </Image>
+
             </View>
         );
+        /*
+        <Image source={Icons['map']} resizeMode={'stretch'} style={{
+            flex: 1,
+            width: null,
+            height: null,
+            backgroundColor: 'transparent'
+        }}>
+            <HexGrid width={width} height={height} density={26}/>
+        </Image>
+        */
+
     }
 });
 
